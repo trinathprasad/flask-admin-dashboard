@@ -1,0 +1,340 @@
+/* ================= GLOBAL ================= */
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+}
+
+
+/* ================= CENTERED PAGES (LOGIN / ADD / EDIT) ================= */
+
+.center-body {
+    background: linear-gradient(135deg, #4ca1af, #2c3e50);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Container */
+.container {
+    background: #fff;
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Inputs for form pages */
+.container input,
+.container select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+
+/* Buttons inside form */
+.container button,
+.container .btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(90deg, #4ca1af, #2c3e50);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    opacity: 0.9;
+}
+
+.back-btn {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+
+/* ================= NAVBAR ================= */
+.navbar {
+    background: linear-gradient(90deg, #2c3e50, #4ca1af);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+.logout-btn {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    background-color: red;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background-color: darkred;
+}
+
+/* ================= DASHBOARD CONTAINER ================= */
+.container-dashboard {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* ================= CARD ================= */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ================= HEADINGS ================= */
+.heading {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* ================= STATS ================= */
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.stat-box {
+    background: #4ca1af;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 120px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.stat-box h3 {
+    font-size: 26px;
+    margin: 0;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= TOP BAR ================= */
+.top-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.top-bar input {
+    flex: 1;
+}
+
+/* ================= SEARCH ================= */
+.search-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;                 
+    transition: 0.1s ease;        
+}
+
+.search-box:focus {
+    border: 2px solid #4ca1af;
+    box-shadow: 0px 0px 8px rgba(76,161,175,0.5);
+}
+/* ================= BUTTONS ================= */
+.btn-add {
+    background-color: #4ca1af;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.btn-add:hover {
+    background-color: #2c3e50;
+}
+
+/* ================= TABLE ================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #4ca1af;
+    color: white;
+    padding: 10px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-buttons form {
+    margin: 0;
+    display: inline;
+}
+
+/* Edit Button */
+.btn-edit {
+    background: linear-gradient(90deg, #4ca1af, #2c3e50);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+    margin-right: 10px;
+    margin-right: 10px;
+}
+
+.btn-edit:hover {
+    background: linear-gradient(90deg, #2c3e50, #4ca1af);
+    transform: scale(1.05);
+}
+
+/* Delete Button */
+.btn-delete {
+    background: linear-gradient(90deg, #ff4d4d, #cc0000);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: linear-gradient(90deg, #cc0000, #990000);
+    transform: scale(1.05);
+}
+
+/* ================= CHART ================= */
+.chart-container {
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 30px;
+}
+
+.status.active {
+    color: green;
+    font-weight: bold;
+}
+
+.status.inactive {
+    color: red;
+    font-weight: bold;
+}
+
+/* ================= MOBILE RESPONSIVE (CRITICAL FIXES) ================= */
+/* ================= MOBILE TABLE (CARD STYLE) ================= */
+@media (max-width: 768px) {
+
+    thead {
+        display: none;
+    }
+
+    table, tbody, tr, td {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        background: #fff;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 5px;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #4ca1af;
+        font-size: 12px;
+    }
+
+    /* Action buttons fix */
+    .action-buttons {
+        display: flex;
+        gap: 5px;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    .action-buttons form {
+        margin: 0;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        font-size: 10px;
+        padding: 4px 6px;
+    }
+}

@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <div class="navbar">
+      Admin Dashboard
+      <a href="{{ url_for('main.logout') }}" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="container-dashboard">
+      <div class="card">
+        <div class="heading">Welcome {{ user }}</div>
+
+        <div class="stats">
+          <div class="stat-box">
+            <h3>{{ data|length }}</h3>
+            <p>Total Users</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>{{ active }}</h3>
+            <p>Active</p>
+          </div>
+
+          <div class="stat-box">
+            <h3>{{ inactive }}</h3>
+            <p>Inactive</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 15px">
+        <a href="{{ url_for('main.add_user') }}" class="btn-add">Add User</a>
+      </div>
+
+      <input type="text" id="tableSearch" placeholder="Search user..." class="search-box" />
+      <div class="card">
+        <div class="heading">User Data</div>
+
+        <table>
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+{% for row in data %}
+<tr>
+    <td data-label="ID">{{ row.id }}</td>
+    <td data-label="Name">{{ row.name }}</td>
+    <td data-label="Email">{{ row.email }}</td>
+    <td data-label="Status">
+    <span class="status {{ row.status }}">{{ row.status }}</span>
+    </td>
+    <td data-label="Actions">
+        <div class="action-buttons">
+            <a href="{{ url_for('main.edit_user', id=row.id) }}" class="btn-edit">Edit</a>
+
+            <form action="{{ url_for('main.delete_user', id=row.id) }}" method="POST">
+                <button class="btn-delete"
+                onclick="return confirm('Are you sure, want to delete this user?')">
+                    Delete
+                </button>      
+            </form>
+        </div>
+    </td>
+    
+</tr>
+{% endfor %}
+</tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="heading">User Status</div>
+        <div class="chart-container">
+          <canvas id="statusChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">© 2026 Flask Dashboard | Built by Trinath</div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const active = Number("{{ active | default(0) }}");
+        const inactive = Number("{{ inactive | default(0) }}");
+
+        const ctx = document.getElementById("statusChart");
+
+        if (ctx) {
+          new Chart(ctx, {
+            type: "pie",
+            data: {
+              labels: ["Active Users", "Inactive Users"],
+              datasets: [
+                {
+                  data: [active, inactive],
+                  backgroundColor: ["darkcyan", "yellow"],
+                  borderColor: "#ffffff",
+                  borderWidth: 7,
+                  hoverOffset: 10,
+                },
+              ],
+            },
+          });
+        }
+      });
+
+      document
+        .getElementById("tableSearch")
+        .addEventListener("keyup", function () {
+          let filter = this.value.toLowerCase();
+          let rows = document.querySelectorAll("table tr");
+
+          rows.forEach((row, index) => {
+            if (index === 0) return;
+            row.style.display = row.innerText.toLowerCase().includes(filter)
+              ? ""
+              : "none";
+          });
+        });
+    </script>
+  </body>
+</html>

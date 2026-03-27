@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="center-body">
+
+<div class="container">
+    <h2>✏️ Edit User</h2>
+
+    <form action="{{ url_for('main.update_user', id=user.id) }}" method="POST">
+        <input type="text" name="name" value="{{ user.name }}" required>
+        <input type="email" name="email" value="{{ user.email }}" required>
+
+        <select name="status">
+            <option value="active" {% if user.status=='active' %}selected{% endif %}>Active</option>
+            <option value="inactive" {% if user.status=='inactive' %}selected{% endif %}>Inactive</option>
+        </select>
+
+        <button type="submit" class="btn">Update User</button>
+    </form>
+
+    <a href="{{ url_for('main.dashboard') }}" class="back-btn">← Back</a>
+</div>
+
+</body>
+</html>
